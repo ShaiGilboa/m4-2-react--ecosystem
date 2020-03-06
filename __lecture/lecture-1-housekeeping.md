@@ -5,7 +5,7 @@
 ### 🏠Housekeeping: Keys
 
 ```
-Warning: Each child in a list should have a unique "key" prop.
+Warning: Each child in a list should have a unique "key" prop..
 
 Check the render method of `App`.
 in SomeComponent (at src/index.js:24)
