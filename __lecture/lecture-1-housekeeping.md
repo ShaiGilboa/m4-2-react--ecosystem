@@ -84,15 +84,15 @@ export const MAGIC_NUMBER = 123;
 
 ```js
 // src/index.js
-import MAGIC_NUMBER from './data';
+import { MAGIC_NUMBER } from './data';
 ```
 
 ---
-
+I
 ```js
 // src/data.js
-export const users = [];
-export const sessions = [];
+const users = [];
+const sessions = [];
 
 const data = { users, sessions };
 
@@ -101,20 +101,59 @@ export default data;
 
 ```js
 // src/index.js
-import {data, users} from './data';
+import data from './data';
 ```
-
----
-
+II
 ```js
 // src/data.js
-export default const baseball = '⚾️';
+const users = [];
+const sessions = [];
 
+export  {users, sessions};
+```
+III
+```js
+// src/data.js
+const users = [];
+const sessions = [];
+
+const data = { users, sessions };
+
+export default data;
+```
+
+```js
+// src/index.js
+import data , { users } from './data';
+```
+
+
+```js
+// src/index.js
+import {users} from './data';
+```
+---
+
+I
+```js
+// src/data.js
+const baseball = '⚾️';
+export default baseball;
+
+```
+```js
+// src/index.js
+import baseball from './data';
+```
+
+II
+```js
+// src/data.js
+export default '⚾️';
 ```
 
 ```js
 // src/index.js
 import baseball from './data';
 ```
-
 ---
