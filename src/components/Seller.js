@@ -11,16 +11,22 @@ const StyledImg = styled.img`
     height: 80px;
     top: 0px;
     left: calc(50% - 40px);
+    p{
+        font-size:1rem;
+        text-decoration:none;
+    }
 `;
 
 const Seller = ({sellersList, itemList}) => {
     const { sellerId } = useParams();
     const sellerItemDetails = {array: itemList.array.filter(item=>item.sellerId===sellerId), type: 'items'}
-    const storeName = sellersList.array.find(seller => seller.id === sellerId).storeName
-    const src = sellersList.array.find(seller => seller.id === sellerId).avatarSrc
+    const seller = sellersList.array.find(seller => seller.id === sellerId)
+    // const storeName = sellersList.array.find(seller => seller.id === sellerId).storeName
+    // const src = sellersList.array.find(seller => seller.id === sellerId).avatarSrc
+    // const description = sellersList.array.find(seller => seller.id === sellerId).description
     return(<StyledHeader>
-            <h2>{`${storeName}`} </h2>
-            <StyledImg src={src} alt='seller' />
+            <h2>{`${seller.storeName}`} - </h2><p>{`${seller.description}`}</p>
+            <StyledImg src={seller.avatarSrc} alt='seller' />
             <ListingGrid list={sellerItemDetails}></ListingGrid>
         </StyledHeader>
     );
