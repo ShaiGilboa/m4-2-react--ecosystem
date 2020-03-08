@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import React from 'react';
 import styled from 'styled-components';
 import {sellers} from '../data';
@@ -26,6 +26,8 @@ const StyledDetails = styled.span`
     h2 {
         font-size: 4rem;
         margin:0;
+        color: #262322;
+
     }
     .subHeading{
         font-style: italic;
@@ -35,6 +37,7 @@ const StyledDetails = styled.span`
     }
     .description{
         margin-bottom:0;
+        color:tomato;
     }
     .origin {
         font-style: italic;
@@ -65,8 +68,8 @@ const StyledDetails = styled.span`
         flex-direction: row;
         align-items:center;
         .seller-photo {
-            width:5vh;
-            height:5vh;
+            width:10vh;
+            height:10vh;
             border-radius:10vh;
             margin-right:10px;
         }
@@ -77,6 +80,10 @@ const StyledDetails = styled.span`
             /* margin: auto auto auto 5px; */
             display: inline-block;
             vertical-align: text-bottom;
+        }
+        a{
+            text-decoration: none;
+            color: #262322;
         }
     }
 `;
@@ -90,10 +97,9 @@ const StyledImg = styled.img`
 
 const ItemDetails = ({itemList}) => {
     const { itemId } = useParams();
-    const itemDetails = itemList.filter(item=>item.id===itemId)[0]
+    const itemDetails = itemList.array.filter(item=>item.id===itemId)[0]
     const sellersArr = Object.values(sellers)
     const seller = sellersArr.find(seller=> seller.id === itemDetails.sellerId)
-    console.log(seller)
     return (
         <StyledItemDetails>
             <div>
@@ -109,8 +115,10 @@ const ItemDetails = ({itemList}) => {
                     </div>
                     <button><p>${itemDetails.price} - Buy Now</p></button>
                     <div className='seller-info'>
-                        <img src={seller.avatarSrc} alt='seller-photo' className='seller-photo'/>
-                        <p className='sold-by'>sold by: <span>{seller.storeName}</span></p>
+                        <img src={seller.avatarSrc} alt='seller-avatar' className='seller-photo'/>
+                        <Link to={`/sellers/${seller.id}`}>
+                            <p className='sold-by'>sold by: <span>{seller.storeName}</span></p>
+                        </Link>
                         {/* <p className='seller-description'> {seller.description}</p> */}
                     </div>
                 </StyledDetails>
