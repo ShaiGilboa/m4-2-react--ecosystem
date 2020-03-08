@@ -19,7 +19,6 @@ const StyledDetails = styled.span`
     flex-direction: column;
     justify-content:space-between;
     margin-left:20px;
-    /* width: auto; */
     div{
         flex-direction:column;
     }
@@ -77,7 +76,6 @@ const StyledDetails = styled.span`
             margin:0;
             font-size:.5rem;
             margin-left:10px;
-            /* margin: auto auto auto 5px; */
             display: inline-block;
             vertical-align: text-bottom;
         }
@@ -89,7 +87,6 @@ const StyledDetails = styled.span`
 `;
 
 const StyledImg = styled.img`
-    /* width: 40vw; */
     border-radius: 10px;
     height:70vh;
 `;
@@ -119,7 +116,6 @@ const ItemDetails = ({itemList}) => {
                         <Link to={`/sellers/${seller.id}`}>
                             <p className='sold-by'>sold by: <span>{seller.storeName}</span></p>
                         </Link>
-                        {/* <p className='seller-description'> {seller.description}</p> */}
                     </div>
                 </StyledDetails>
             </div>

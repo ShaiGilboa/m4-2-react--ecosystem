@@ -2,6 +2,8 @@ import React from 'react';
 import {NavLink, Link} from 'react-router-dom';
 import styled from 'styled-components'
 
+const style = {fontWeight: "bold",color: "#E1AD01", borderBottom: "2px solid #E1AD01", width: 'fit-content'}
+
 const StyledLink = styled.p`
     margin: auto 10px;
 
@@ -35,13 +37,13 @@ const Header = () => {
     return (
         <StyledHeader>
             <h1 className='header'><Link to='/'>Fruit Emporium</Link></h1>
-            <NavLink to='/' exact activeStyle={{fontWeight: "bold",color: "#E1AD01", borderBottom: "2px solid #E1AD01", width: 'fit-content'}}>
+            <NavLink to='/' exact activeStyle={style}>
                 <StyledLink >Home</StyledLink>
             </NavLink>
-            <NavLink to='/about' exact activeStyle={{fontWeight: "bold",color: "#E1AD01", borderBottom: "2px solid #E1AD01", width: 'fit-content'}}>
+            <NavLink to='/about' exact activeStyle={style}>
                 <StyledLink>About</StyledLink>
             </NavLink>
-            <NavLink to='/Sellers' exact activeStyle={{fontWeight: "bold",color: "#E1AD01", borderBottom: "2px solid #E1AD01", width: 'fit-content'}}>
+            <NavLink to='/sellers' exact activeStyle={style}>
                 <StyledLink>Sellers</StyledLink>
             </NavLink>
         </StyledHeader>

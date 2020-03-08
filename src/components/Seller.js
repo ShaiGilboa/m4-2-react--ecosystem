@@ -21,9 +21,6 @@ const Seller = ({sellersList, itemList}) => {
     const { sellerId } = useParams();
     const sellerItemDetails = {array: itemList.array.filter(item=>item.sellerId===sellerId), type: 'items'}
     const seller = sellersList.array.find(seller => seller.id === sellerId)
-    // const storeName = sellersList.array.find(seller => seller.id === sellerId).storeName
-    // const src = sellersList.array.find(seller => seller.id === sellerId).avatarSrc
-    // const description = sellersList.array.find(seller => seller.id === sellerId).description
     return(<StyledHeader>
             <h2>{`${seller.storeName}`} - </h2><p>{`${seller.description}`}</p>
             <StyledImg src={seller.avatarSrc} alt='seller' />

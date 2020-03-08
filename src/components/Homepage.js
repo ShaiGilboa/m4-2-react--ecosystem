@@ -22,9 +22,7 @@ const Homepage = ({itemList}) => {
     return (
         <StyledHeader>
             <h2>Home</h2>
-            <p>Fruit emporium sells the finest fruits from this world and beyond.
-
-Browse items:</p>
+            <p>Fruit emporium sells the finest fruits from this world and beyond. Browse items:</p>
             <ListingGrid list={itemList}></ListingGrid>
         </StyledHeader>
     )
