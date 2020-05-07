@@ -10,8 +10,8 @@
 ```jsx
 import styled from 'styled-components';
 
-const Button = styled.button`
-  background: blueviolet;
+const StyledButton = styled.button`
+  background: ${props=> props.isActive ? 'green': 'blue'};
   border: none;
   padding: 16px 32px;
   color: white;
@@ -20,7 +20,7 @@ const Button = styled.button`
 `;
 
 ReactDOM.render(
-  <Button>Hello World</Button>,
+  <StyledButton isActive={true}>Hello World</StyledButton>,
   document.querySelector('#root')
 );
 ```
@@ -97,15 +97,24 @@ Convert the following inline styles to styled-components
   height: 300px;
 }
 
+
+
 ```
 
-
 ```jsx
+import styled from 'styled-component'
+
+const StyledWrapper = styled.div`
+  margin: 0 auto;
+  height: 300px;
+  }
+`;
+
 function App(props) {
   return (
-    <div className="wrapper">
+    <StyledWrapper>
       Hello World
-    </div>
+    </StyledWrapper>
   )
 }
 ```
@@ -133,14 +142,32 @@ function App(props) {
 ```
 
 ```jsx
+import styled from 'styled-component'
+
+const StyledButton = styled.button`
+  color: tomato;
+  font-weight: bold;
+  padding: 20px;
+
+  &:hover,
+  &:focus {
+    transform: translateY(-3px);
+  }
+
+  i {
+    width: 32px;
+    height: 32px;
+  }
+`;
+
 function IconButton(props) {
   return (
-    <button className="btn">
-      <i className="icon">
+    <StyledButton>
+      <i>
         {props.icon}
       </i>
       {props.children}
-    </button>
+    </StyledButton>
   )
 }
 ```
@@ -167,16 +194,33 @@ function IconButton(props) {
 ```
 
 ```jsx
+import styled from 'styled-component'
+
+const StyledP = styled.p`
+  font-size: 18px;
+  line-height: 1.4;
+  color: #333;
+
+  strong {
+  color: red;
+  }
+
+  em {
+  color: #666;
+  }
+`;
+
+
 function FantasticStory(props) {
   return (
     <div>
-      <p className="paragraph">
+      <StyledP>
         The <strong>quick</strong> red fox jumped over
         the <em>lazy</em> dog.
-      </p>
-      <p>
+      </StyledP>
+      <StyledP>
         The end.
-      </p>
+      </StyledP>
     </div>
   )
 }

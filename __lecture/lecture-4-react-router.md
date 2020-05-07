@@ -95,19 +95,17 @@ import {
 function App(props) {
   return (
     <Router>
-      <div>
-        <Switch>
-          <Route exact path="/">
-            <Homepage />
-          </Route>
-          <Route exact path="/shop/:itemId">
-            <ItemDetails />
-          </Route>
-          <Route>
-            <ErrorPage />
-          </Route>
-        </Switch>
-      </div>
+      <Switch>
+        <Route exact path="/">
+          <Homepage />
+        </Route>
+        <Route exact path="/shop/:itemId">
+          <ItemDetails />
+        </Route>
+        <Route>
+          <ErrorPage />
+        </Route>
+      </Switch>
     </Router>
   )
 }
@@ -128,6 +126,8 @@ import { Link } from 'react-router-dom';
   View item details
 </Link>
 ```
+
+// a will reload the page, <Link> won't. it will keep the variables and the states
 
 ---
 
